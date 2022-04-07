@@ -1,14 +1,17 @@
 <?php
-// require_once('./template/template.php')
+require_once('./template/template.php');
 // require_once('../template/template.php')
 require_once('./vendor/autoload.php');
 use model\Categorie;
 use service\CategorieService;
+use controller\CategorieController;
 
-$categorie = new Categorie(1, 'java');
+CategorieController::controllerManager();
 
-// CategorieService::create($categorie);
-// CategorieService::update($categorie);
-CategorieService::delete(1);
-var_dump(CategorieService::read());
+// $categorie = new Categorie(1, 'java');
+
+// // CategorieService::create($categorie);
+// // CategorieService::update($categorie);
+// CategorieService::delete(1);
+// var_dump(CategorieService::read());
 ?>

@@ -22,7 +22,7 @@
           <a class="nav-link active" aria-current="page" href="">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="categorie.php">Categorie</a>
+          <a class="nav-link" href="index.php?view=read">Categorie</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="produit.php">Produit</a>
