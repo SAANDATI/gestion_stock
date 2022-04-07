@@ -1,0 +1,18 @@
+{
+    "name": "saandati/gestion-stock",
+    "autoload": {
+        "psr-4": {
+            "Saandati\\GestionStock\\": "src/",
+            "model\\":"./model",
+            "service\\":"./service",
+            "controller\\":"./controller"
+        }
+    },
+    "authors": [
+        {
+            "name": "saandati",
+            "email": "saandatisalim@gmail.com"
+        }
+    ],
+    "require": {}
+}
