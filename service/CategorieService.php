@@ -17,7 +17,6 @@
 
             $query = DbConnection::getConnection()->query('SELECT * FROM categorie');
             return $query->fetchAll();
-
         }
 
         public static function update(Categorie $categorie){
@@ -27,7 +26,6 @@
             $stmt->bindParam(':libelle',$libelle);
             $stmt->bindParam(':id',$id);
             $stmt->execute();
-
         }
         public static function delete($id){
             $stmt = DbConnection::getConnection()->prepare('DELETE FROM categorie WHERE id=:id');

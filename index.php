@@ -2,6 +2,7 @@
 require_once('./template/template.php');
 // require_once('../template/template.php')
 require_once('./vendor/autoload.php');
+
 use model\Categorie;
 use service\CategorieService;
 use controller\CategorieController;
