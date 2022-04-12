@@ -1,6 +1,13 @@
 <?php
 
 namespace controller;
+
+require_once("../vendor/autoload.php");
+
+use model\Categorie;
+use service\CategorieService;
+
+
 class CategorieController{
 
     public static function controllerManager(){
@@ -8,23 +15,42 @@ class CategorieController{
         $view = isset($_GET['view'])?$_GET['view']:NULL;
         $action = isset($_GET['action'])?$_GET['action']:NULL;
         
-        switch ($view) {
+        // switch ($view) {
+        //     case 'read':
+        //         self::includeView($view);
+        //         break;
+            
+        //     case 'create':
+        //         self::includeView($view);
+        //         break;
+
+        //     case 'update':
+        //         self::includeView($view);
+        //         break;
+
+        //     default:
+        //         self::includeView("read");
+        //         break;
+        // }
+
+        switch ($action) {
             case 'read':
-                self::includeView($view);
+                self::read();
                 break;
             
             case 'create':
-                self::includeView($view);
+                self::create();
                 break;
 
             case 'update':
-                self::includeView($view);
+                self::update();
                 break;
 
             default:
-                self::includeView("read");
+                // echo "Error!!!";
                 break;
         }
+
  
     }
 
@@ -33,5 +59,57 @@ class CategorieController{
         require_once('./view/categorie/'.$view.'.php');
     }
 
+    public static function read(){
+
+        echo json_encode(CategorieService::read());
+    }
+
+    public static function create(){
+
+        extract($_POST);
+        if (!empty($libelle)) {
+            
+            $categorie  = new Categorie(null, $libelle);
+            CategorieService::create($categorie);
+            echo "OK!";
+
+        } else {
+            
+            echo "veuiller re;plir tout les champs!!!";
+        }
+        
+    }
+
+    public static function update(){
+
+        extract($_GET);
+        extract($_POST);
+        if (!empty($libelle)) {
+            
+            $categorie  = new Categorie($id, $libelle);
+            CategorieService::update($categorie);
+            echo "OK!";
+
+        } else {
+            
+            echo "veuiller re;plir tout les champs!!!";
+        }
+        
+    }
+
+    public static function delete(){
+
+        extract($_GET);
+
+        CategorieService::delete($id);
+        echo "Suppression reusit";
+        
+    }
+
+    
+    
 
 }
+CategorieController::controllerManager();
+
+?>
