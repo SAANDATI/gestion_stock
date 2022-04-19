@@ -41,6 +41,14 @@ class CategorieController{
             case 'create':
                 self::create();
                 break;
+            
+            case 'delete':
+                self::delete();
+                break;
+
+            case 'one':
+                self::one();
+                break;
 
             case 'update':
                 self::update();
@@ -71,11 +79,11 @@ class CategorieController{
             
             $categorie  = new Categorie(null, $libelle);
             CategorieService::create($categorie);
-            echo "OK!";
+            echo "OK";
 
         } else {
             
-            echo "veuiller re;plir tout les champs!!!";
+            echo "veuiller remplir tout les champs!!!";
         }
         
     }
@@ -88,11 +96,11 @@ class CategorieController{
             
             $categorie  = new Categorie($id, $libelle);
             CategorieService::update($categorie);
-            echo "OK!";
+            echo "OK";
 
         } else {
             
-            echo "veuiller re;plir tout les champs!!!";
+            echo "veuiller remplir tout les champs!!!";
         }
         
     }
@@ -106,6 +114,13 @@ class CategorieController{
         
     }
 
+    public static function one(){
+
+        extract($_GET);
+
+        echo  json_encode(CategorieService::one($id));
+       
+    }
     
     
 

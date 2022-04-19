@@ -19,6 +19,14 @@
             return $query->fetchAll();
         }
 
+        public static function one($id){
+
+            $query = DbConnection::getConnection()->prepare('SELECT * FROM categorie WHERE id=:id');
+            $query->bindParam(':id',$id);
+            $query->execute();
+            return $query->fetchObject(__CLASS__);
+        }
+
         public static function update(Categorie $categorie){
             $id = $categorie->getId();
             $libelle = $categorie->getLibelle();
@@ -32,6 +40,8 @@
             $stmt->bindParam(':id',$id);
             $stmt->execute();
         }
+
+        
 
     }
 
