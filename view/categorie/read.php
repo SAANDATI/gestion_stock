@@ -55,7 +55,7 @@
     function add(){
 
         libelle = $('#libelle').val()
-        $.post("http://localhost/gestionStock/controller/CategorieController.php?action=create", 
+        $.post("https://g-stocks.herokuapp.com/controller/CategorieController.php?action=create", 
         {libelle:libelle}).done((data)=>{
 
             if (data.trim()=="OK") {
@@ -80,7 +80,7 @@
             confirmButtonColor:'#3085d6'
         }).then((res)=>{
             if (res.isConfirmed) {
-                $.get("http://localhost/gestionStock/controller/CategorieController.php?action=delete&id="+id).
+                $.get("https://g-stocks.herokuapp.com/controller/CategorieController.php?action=delete&id="+id).
                 done((data)=>{
                     message('Suppression', 'success', 'categorie supprimer')
                     getCategories()
@@ -93,7 +93,7 @@
     function edit(id){
 
         categorie_id = id;
-        $.get("http://localhost/gestionStock/controller/CategorieController.php?action=one&id="+id).done((data)=>{
+        $.get("https://g-stocks.herokuapp.com/controller/CategorieController.php?action=one&id="+id).done((data)=>{
             this.categorie = JSON.parse(data);
             $('#libelle').val(categorie.libelle)
             $('#validate').html('Update')
@@ -115,7 +115,7 @@
             confirmButtonColor:'#3085d6'
         }).then((res)=>{
             if (res.isConfirmed) {
-                $.post("http://localhost/gestionStock/controller/CategorieController.php?action=update&id="+id,{libelle:libelle}).
+                $.post("https://g-stocks.herokuapp.com/controller/CategorieController.php?action=update&id="+id,{libelle:libelle}).
                 done((data)=>{
                     if (data.trim()=="OK") {
                         message("Modifier", "success", "categorie modifier")
@@ -145,7 +145,7 @@
     function getCategories(){
 
         $("#categories").html('')
-        $.get("http://localhost/gestionStock/controller/CategorieController.php?action=read").done((data)=>{
+        $.get("https://g-stocks.herokuapp.com/controller/CategorieController.php?action=read").done((data)=>{
 
             var categories = JSON.parse(data);
             for(var c of categories){
