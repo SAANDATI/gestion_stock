@@ -73,8 +73,8 @@ class CategorieController{
         // header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT, PATCH, OPTIONS');
         header("Content-type: application/json");
 
-        return CategorieService::read();
-        // echo json_encode(CategorieService::read());
+        // return CategorieService::read();
+        echo json_encode(CategorieService::read());
     }
 
     public static function create(){
@@ -128,8 +128,8 @@ class CategorieController{
 
     public static function one(){
 
-        header("Access-Control-Allow-Origin: *");
-        header("Access-Control-Allow-Headers: *");
+        header('Access-Control-Allow-Origin: *');
+        header("Content-type: application/json");
         extract($_GET);
 
         echo  json_encode(CategorieService::one($id));
