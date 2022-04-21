@@ -159,7 +159,7 @@
 
         var categorie;
 
-        // getCategories();
+        getCategories();
         $('#validate').click(function(e){
             e.preventDefault();
             let test = $('#validate').html()
