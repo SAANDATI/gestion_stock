@@ -49,11 +49,13 @@
 
 <script>
     var categorie_id
-
+    
+    var api = "https://g-stocks.herokuapp.com/controller/CategorieController.php";
+    var apiUrl = "http://locahost/gestionStock/controller/CategorieController.php";
     function add(){
 
         libelle = $('#libelle').val()
-        $.post("https://g-stocks.herokuapp.com/controller/CategorieController.php?action=create", 
+        $.post(api+"?action=create", 
         {libelle:libelle}).done((data)=>{
 
             if (data.trim()=="OK") {
@@ -78,7 +80,7 @@
             confirmButtonColor:'#3085d6'
         }).then((res)=>{
             if (res.isConfirmed) {
-                $.get("https://g-stocks.herokuapp.com/controller/CategorieController.php?action=delete&id="+id).
+                $.get(api+"?action=delete&id="+id).
                 done((data)=>{
                     message('Suppression', 'success', 'categorie supprimer')
                     getCategories()
@@ -91,7 +93,7 @@
     function edit(id){
 
         categorie_id = id;
-        $.get("https://g-stocks.herokuapp.com/controller/CategorieController.php?action=one&id="+id).done((data)=>{
+        $.get(api+"?action=one&id="+id).done((data)=>{
             this.categorie = JSON.parse(data);
             $('#libelle').val(categorie.libelle)
             $('#validate').html('Update')
@@ -113,7 +115,7 @@
             confirmButtonColor:'#3085d6'
         }).then((res)=>{
             if (res.isConfirmed) {
-                $.post("https://g-stocks.herokuapp.com/controller/CategorieController.php?action=update&id="+id,{libelle:libelle}).
+                $.post(api+"?action=update&id="+id,{libelle:libelle}).
                 done((data)=>{
                     if (data.trim()=="OK") {
                         message("Modifier", "success", "categorie modifier")
@@ -143,7 +145,7 @@
     function getCategories(){
 
         $("#categories").html('');
-        $.get("https://g-stocks.herokuapp.com/controller/CategorieController.php?action=read").done((data)=>{
+        $.get(api+"?action=read").done((data)=>{
 
             console.log(data);
             var categories = JSON.parse(data);
@@ -161,7 +163,7 @@
 
         var categorie;
 
-        // getCategories();
+        getCategories();
         $('#validate').click(function(e){
             e.preventDefault();
             let test = $('#validate').html()

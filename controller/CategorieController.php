@@ -69,15 +69,17 @@ class CategorieController{
 
     public static function read(){
 
-        header("Access-Control-Allow-Origin: *");
-        header("Access-Control-Allow-Headers: *");
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT, PATCH, OPTIONS');
+        header("Content-type: application/json");
 
+        // return CategorieService::read();
         echo json_encode(CategorieService::read());
     }
 
     public static function create(){
         header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: *");
+        header("Access-Control-Allow-Headers: *");
 
         extract($_POST);
         if (!empty($libelle)) {
@@ -116,7 +118,7 @@ header("Access-Control-Allow-Headers: *");
 
         header("Access-Control-Allow-Origin: *");
         header("Access-Control-Allow-Headers: *");
-        
+
         extract($_GET);
 
         CategorieService::delete($id);
