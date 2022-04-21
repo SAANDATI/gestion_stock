@@ -144,13 +144,13 @@
 
     function getCategories(){
 
-        $("#categories").html('');
+        $("#categorie").html('');
         $.get("https://g-stocks.herokuapp.com/controller/CategorieController.php?action=read").done((data)=>{
 
             // console.log(data);
             var categories = JSON.parse(data);
             for(var c of categories){
-                $("#categories").append('<tr><td>'+c.id+'</td><td>'+c.libelle+
+                $("#categorie").append('<tr><td>'+c.id+'</td><td>'+c.libelle+
                 '</td><td><button type="button" class="btn btn-success" onclick="edit('+c.id+')">Modifier</button></td> <td><button type="button" onclick="remove('+c.id+')" class="btn btn-danger">Supprimer</button></td>')
                             
             }
