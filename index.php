@@ -15,4 +15,6 @@ CategorieController::controllerManager();
 // // CategorieService::update($categorie);
 // CategorieService::delete(1);
 // var_dump(CategorieService::read());
+
+
 ?>
