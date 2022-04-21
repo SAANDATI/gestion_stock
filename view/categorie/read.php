@@ -18,7 +18,7 @@
     <br><br>
     <form>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Libelle</label>
+            <label for="libelle" class="form-label">Libelle</label>
             <input type="text" class="form-control" id="libelle" aria-describedby="Libelle">
         </div>
         <button id="validate" type="submit" class="btn btn-primary">Add</button>
@@ -30,21 +30,19 @@
 <br> <br>
 <div class="row">
     <div class="col-lg-10 offset-1">
-
-    <table class="table">
-        <thead>
-            <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Libelle</th>
-            <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody id="categories">
-            
-        </tbody>
-</table>
-
-</div>
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Libelle</th>
+                <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody id="categories">
+                
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <br><br>
@@ -161,7 +159,7 @@
 
         var categorie;
 
-        getCategories();
+        // getCategories();
         $('#validate').click(function(e){
             e.preventDefault();
             let test = $('#validate').html()
