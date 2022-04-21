@@ -5,7 +5,6 @@
     use \PDO;
     use \PDOException;
     class DbConnection{
-
         private static $connexion;
 
         public static function getConnection(){
