@@ -132,8 +132,8 @@ class CategorieController{
         header("Content-type: application/json");
         extract($_GET);
 
-        echo 'Bonjour';
-        // echo  json_encode(CategorieService::one($id));
+
+        echo  json_encode(CategorieService::one($id));
        
     }
     

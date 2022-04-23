@@ -12,7 +12,7 @@
             if (self::$connexion==null) {
                 try {
                     // self::$connexion=new PDO('mysql:host=sql11.freemysqlhosting.net;dbname=sql11486821','sql11486821','TqIzAvCvEb');
-                    self::$connexion=new PDO("sqlite:".__DIR__."/db.sql");
+                    self::$connexion=new PDO("sqlite:".__DIR__."db.db");
                     // self::$connexion=new PDO('mysql:host=localhost;dbname=gestion_stock','root','');
                 } catch (PDOException $e) {
                     
