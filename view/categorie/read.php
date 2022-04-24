@@ -50,8 +50,8 @@
 <script>
     var categorie_id
     
-    var api = "https://g-stocks.herokuapp.com/controller/CategorieController.php";
-    var apiUrl = "http://localhost/gestionStock/controller/CategorieController.php";
+    var apiUrl = "https://g-stocks.herokuapp.com/controller/CategorieController.php";
+    var api = "http://localhost/gestionStock/controller/CategorieController.php";
     function add(){
 
         libelle = $('#libelle').val()
