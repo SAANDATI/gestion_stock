@@ -120,10 +120,10 @@
                     if (data.trim()=="OK") {
                         message("Modifier", "success", "categorie modifier")
                         getCategories();
-                        $('#validate').html('Add')
+                        $('#validate').html('Add');
                         clear();
                     } else {
-                        message("Erreur", "error", data)
+                        message("Erreur", "error", data);
                     }
                 })
             } 
@@ -153,7 +153,7 @@
                 $("#categories").append('<tr><td>'+c.id+'</td> <td>'+c.libelle+
                 '</td><td><button type="button" class="btn btn-success" onclick="edit('+c.id+
                 ')">Modifier</button></td> <td><button type="button" onclick="remove('+c.id+
-                ')" class="btn btn-danger">Supprimer</button></td>')
+                ')" class="btn btn-danger">Supprimer</button></td>');
                             
             }
         })
@@ -166,12 +166,12 @@
         getCategories();
         $('#validate').click(function(e){
             e.preventDefault();
-            let test = $('#validate').html()
+            let test = $('#validate').html();
 
             if (test=='Add') {
                 add();
             } else if(test='Update'){
-                update(categorie_id)
+                update(categorie_id);
             }
         })
     })

@@ -73,8 +73,8 @@ class CategorieController{
         // header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT, PATCH, OPTIONS');
         header("Content-type: application/json");
 
-        return CategorieService::read();
-        // echo json_encode(CategorieService::read());
+        // return CategorieService::read();
+        echo json_encode(CategorieService::read());
     }
 
     public static function create(){
