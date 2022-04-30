@@ -94,7 +94,7 @@
 
         categorie_id = id;
         $.get(api+"?action=one&id="+id).done((data)=>{
-            this.categorie = JSON.parse(data);
+            this.categorie = data;
             $('#libelle').val(categorie.libelle)
             $('#validate').html('Update')
         })
@@ -148,7 +148,8 @@
         $.get(api+"?action=read").done((data)=>{
 
             console.log(data);
-            var categories = JSON.parse(data);
+            // var categories = JSON.parse(data);
+            var categories = data;
             for(var c of categories){
                 $("#categories").append('<tr><td>'+c.id+'</td> <td>'+c.libelle+
                 '</td><td><button type="button" class="btn btn-success" onclick="edit('+c.id+

@@ -70,7 +70,7 @@ class CategorieController{
     public static function read(){
 
         header('Access-Control-Allow-Origin: *');
-        // header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT, PATCH, OPTIONS');
+        header("Access-Control-Allow-Headers: *");
         header("Content-type: application/json");
 
         // return CategorieService::read();
